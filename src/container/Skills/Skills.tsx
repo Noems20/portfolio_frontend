@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Tooltip as ReactTooltip } from "react-tooltip";
+import ReactTooltip from "react-tooltip";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -12,9 +12,18 @@ type Skill = {
   icon: SanityImageSource;
   bgColor: string;
 };
+type Experience = {
+  works: Work[];
+  year: number;
+};
+type Work = {
+  name: string;
+  desc: string;
+  company: string;
+};
 
 const Skills = () => {
-  const [experiences, setExperiences] = useState([]);
+  const [experiences, setExperiences] = useState<Experience[]>([]);
   const [skills, setSkills] = useState<Skill[]>([]);
 
   useEffect(() => {
@@ -36,12 +45,12 @@ const Skills = () => {
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.name}
+              key={`${index}-${skill.name}`}
             >
               <div
                 className="app__flex"
@@ -92,4 +101,8 @@ const Skills = () => {
   );
 };
 
-export default AppWrap(Skills, "skills", "app__whitebg");
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  "skills",
+  "app__whitebg"
+);
