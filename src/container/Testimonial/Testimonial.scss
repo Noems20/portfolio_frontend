@@ -39,6 +39,10 @@
   @media screen and (max-width: 600px) {
     flex-direction: column;
   }
+
+  &.nightmode {
+    background-color: var(--primary-nightmode-color);
+  }
 }
 
 .app__testimonial-content {
@@ -80,6 +84,12 @@
     margin-top: 2rem;
     padding: 0;
   }
+
+  &.nightmode {
+    h4 {
+      color: var(--secondary-nightmode-color);
+    }
+  }
 }
 
 .app__testimonial-btns {
@@ -91,6 +101,13 @@
     height: 50px;
     border-radius: 50%;
     background-color: var(--white-color);
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 
     margin: 1rem;
     transition: all 0.3s ease-in-out;
@@ -116,6 +133,23 @@
       svg {
         width: 45px;
         height: 45px;
+      }
+    }
+  }
+  &.nightmode {
+    div {
+      background-color: var(--primary-nightmode-color);
+
+      svg {
+        color: var(--secondary-nightmode-color);
+      }
+
+      &:hover {
+        background-color: var(--secondary-nightmode-color);
+
+        svg {
+          color: var(--white-color);
+        }
       }
     }
   }

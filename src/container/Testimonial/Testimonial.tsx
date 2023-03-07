@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "../../ThemeContext";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -23,6 +24,7 @@ const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [brands, setBrands] = useState<Brand[]>([]);
+  const { theme } = useContext(ThemeContext);
 
   const handleClick = (index: number) => {
     setCurrentIndex(index);
@@ -45,21 +47,37 @@ const Testimonial = () => {
     <>
       {testimonials.length && (
         <>
-          <div className="app__testimonial-item app__flex">
+          <div
+            className={`app__testimonial-item app__flex ${
+              theme === "dark" ? "nightmode" : ""
+            }`}
+          >
             <img
               src={urlFor(testimonials[currentIndex].imgurl).url()}
               alt={testimonials[currentIndex].name}
             />
-            <div className="app__testimonial-content">
-              <p className="p-text">{testimonials[currentIndex].feedback}</p>
+            <div
+              className={`app__testimonial-content ${
+                theme === "dark" ? "nightmode" : ""
+              }`}
+            >
+              <p className={`p-text ${theme === "dark" ? "nightmode" : ""}`}>
+                {testimonials[currentIndex].feedback}
+              </p>
               <div>
                 <h4 className="bold-text">{testimonials[currentIndex].name}</h4>
-                <h5 className="p-text">{testimonials[currentIndex].company}</h5>
+                <h5 className={`p-text ${theme === "dark" ? "nightmode" : ""}`}>
+                  {testimonials[currentIndex].company}
+                </h5>
               </div>
             </div>
           </div>
 
-          <div className="app__testimonial-btns app__flex">
+          <div
+            className={`app__testimonial-btns app__flex ${
+              theme === "dark" ? "nightmode" : ""
+            }`}
+          >
             <div
               className="app__flex"
               onClick={() =>

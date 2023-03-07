@@ -33,11 +33,25 @@
       padding: 1rem 2rem;
       border-radius: 0.85rem;
     }
+
+    &.nightmode {
+      background-color: var(--primary-nightmode-color);
+
+      &:hover {
+        color: #fff;
+        background-color: var(--secondary-color);
+      }
+    }
   }
 
   .item-active {
     background-color: var(--secondary-color);
     color: #fff;
+
+    &.nightmode {
+      color: #fff;
+      background-color: var(--secondary-color);
+    }
   }
 }
 
@@ -73,6 +87,10 @@
     @media screen and (max-width: 300px) {
       width: 100%;
       margin: 1rem;
+    }
+
+    &.nightmode {
+      background-color: var(--primary-nightmode-color);
     }
   }
 }
@@ -152,5 +170,9 @@
     border-radius: 10px;
     background-color: #fff;
     top: -25px;
+
+    &.nightmode {
+      background-color: var(--primary-nightmode-color);
+    }
   }
 }

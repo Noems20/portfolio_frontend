@@ -1,6 +1,6 @@
 #home {
   position: relative;
-  background: url("../../assets/bgIMG.png");
+  // background: url("../../assets/bgWhite.png");
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
@@ -12,6 +12,12 @@
     .copyright {
       display: none;
     }
+  }
+
+  transition: background-color 0.2s;
+
+  &.nightmode {
+    background-color: var(--secondary-bg-nightmode-color);
   }
 }
 
@@ -68,6 +74,10 @@
     width: auto;
 
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+    &.nightmode {
+      background: var(--primary-nightmode-color);
+    }
   }
 
   .tag-cmp {
@@ -115,6 +125,10 @@
     img {
       width: 60%;
       height: 60%;
+    }
+
+    &.nightmode {
+      background: var(--primary-nightmode-color);
     }
   }
 

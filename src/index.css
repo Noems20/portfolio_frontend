@@ -10,6 +10,11 @@
   --gray-color: #6b7688;
   --brown-color: #46364a;
   --white-color: #ffffff;
+
+  --primary-nightmode-color: #242526;
+  --secondary-bg-nightmode-color: #18191a;
+  --secondary-nightmode-color: #3f4fff;
+  --gray-nightmode-color: #b0b3b8;
 }
 
 * {

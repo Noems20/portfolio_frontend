@@ -13,6 +13,11 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed;
   z-index: 2;
+
+  &.nightmode {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
 }
 
 .app__navbar-logo {
@@ -42,10 +47,13 @@
   li {
     margin: 0 1rem;
     cursor: pointer;
-
+    color: var(--gray-color);
     flex-direction: column;
 
-    div {
+    display: flex;
+    align-items: center;
+
+    div.dot {
       width: 5px;
       height: 5px;
       background: transparent;
@@ -55,23 +63,42 @@
     }
 
     a {
-      color: var(--gray-color);
+      color: currentColor;
       text-decoration: none;
       flex-direction: column;
 
       text-transform: uppercase;
       font-weight: 500;
 
-      transition: all 0.3s ease-in-out;
+      transition: color 0.3s ease-in-out;
+      line-height: 1;
+    }
 
-      &:hover {
-        color: var(--secondary-color);
-      }
+    & svg {
+      width: 20px;
+      height: 20px;
+      color: currentColor;
+      transition: color 0.3s ease-in-out;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
     }
 
     &:hover {
-      div {
-        background: var(--secondary-color);
+      color: var(--secondary-color);
+      div.dot {
+        background: currentColor;
+      }
+    }
+
+    &.nightmode {
+      color: var(--primary-color);
+
+      &:hover {
+        color: var(--secondary-nightmode-color);
       }
     }
   }
@@ -92,10 +119,11 @@
   align-items: center;
   background-color: var(--secondary-color);
 
-  svg {
+  svg.circle {
     width: 70%;
     height: 70%;
     color: var(--white-color);
+    cursor: pointer;
   }
 
   div {
@@ -115,7 +143,7 @@
     align-items: flex-end;
     flex-direction: column;
 
-    background: url("../../assets/bgWhite.png");
+    // background: url("../../assets/bgWhite.png");
     background-color: var(--white-color);
     background-size: cover;
     background-repeat: repeat;
@@ -123,11 +151,17 @@
     /* top box shadow */
     box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
 
-    svg {
+    &.nightmode {
+      background-color: var(--secondary-bg-nightmode-color);
+      box-shadow: 0px 0px 20px rgba(26, 26, 26, 0.15);
+    }
+
+    svg.bars {
       width: 35px;
       height: 35px;
       color: var(--secondary-color);
       margin: 0.5rem 1rem;
+      cursor: pointer;
     }
 
     ul {
@@ -144,18 +178,34 @@
 
       li {
         margin: 1rem;
+        color: var(--gray-color);
+        cursor: pointer;
 
         a {
-          color: var(--gray-color);
+          color: currentColor;
           text-decoration: none;
           font-size: 1rem;
           text-transform: uppercase;
           font-weight: 500;
 
           transition: all 0.3s ease-in-out;
+        }
+
+        svg {
+          width: 21px;
+          height: 21px;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:hover {
+          color: var(--secondary-color);
+        }
+
+        &.nightmode {
+          color: var(--primary-color);
 
           &:hover {
-            color: var(--secondary-color);
+            color: var(--secondary-nightmode-color);
           }
         }
       }

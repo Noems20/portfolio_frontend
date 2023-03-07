@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "../../ThemeContext";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -21,6 +22,7 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState<Work[]>([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -48,7 +50,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">
+      <h2 className={`head-text ${theme === "dark" ? "nightmode" : ""}`}>
         My Creative <span>Portfolio</span> Section
       </h2>
 
@@ -66,7 +68,7 @@ const Work = () => {
             onClick={() => handleWorkFilter(item)}
             className={`app__work-filter-item app__flex p-text ${
               activeFilter === item ? "item-active" : ""
-            }`}
+            } ${theme === "dark" ? "nightmode" : ""}`}
           >
             {item}
           </div>
@@ -79,7 +81,12 @@ const Work = () => {
         className="app__work-portfolio"
       >
         {filterWork.map((work: Work, index) => (
-          <div className="app__work-item app__flex" key={index}>
+          <div
+            className={`app__work-item app__flex ${
+              theme === "dark" ? "nightmode" : ""
+            }`}
+            key={index}
+          >
             <div className="app__work-img app__flex">
               <img src={urlFor(work.imgUrl).url()} alt={work.title} />
 
@@ -116,13 +123,26 @@ const Work = () => {
             </div>
 
             <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>
+              <h4
+                className={`bold-text ${theme === "dark" ? "nightmode" : ""}`}
+              >
+                {work.title}
+              </h4>
+              <p
+                className={`p-text ${theme === "dark" ? "nightmode" : ""}`}
+                style={{ marginTop: 10 }}
+              >
                 {work.description}
               </p>
 
-              <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+              <div
+                className={`app__work-tag app__flex ${
+                  theme === "dark" ? "nightmode" : ""
+                }`}
+              >
+                <p className={`p-text ${theme === "dark" ? "nightmode" : ""}`}>
+                  {work.tags[0]}
+                </p>
               </div>
             </div>
           </div>
