@@ -39,7 +39,7 @@
 
       &:hover {
         color: #fff;
-        background-color: var(--secondary-color);
+        background-color: var(--secondary-dark-nightmode-color);
       }
     }
   }
@@ -50,7 +50,7 @@
 
     &.nightmode {
       color: #fff;
-      background-color: var(--secondary-color);
+      background-color: var(--secondary-dark-nightmode-color);
     }
   }
 }

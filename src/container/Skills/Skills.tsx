@@ -11,6 +11,7 @@ import "./Skills.scss";
 type Skill = {
   _id: string;
   icon: SanityImageSource;
+  name: string;
 };
 
 const Skills = () => {
@@ -27,12 +28,24 @@ const Skills = () => {
   return (
     <>
       <h2 className={`head-text ${theme === "dark" ? "nightmode" : ""}`}>
-        <span>Skills</span> also matters
+        <span>Skills</span> also matter
       </h2>
       <div className="flex flex-row flex-wrap justify-center gap-10">
         {skills.map((skill) => (
-          <div className="w-28 h-28" key={skill._id}>
-            <BallCanvas icon={urlFor(skill.icon).url()} />
+          <div
+            key={skill._id}
+            className="w-30 h-30 flex flex-col justify-center justify-items-center"
+          >
+            <div className="ball flex flex-col justify-center justify-items-center">
+              <BallCanvas icon={urlFor(skill.icon).url()} />
+              <p
+                className={`p-text ${
+                  theme === "dark" ? "nightmode" : ""
+                } text-center pt-1 text-sm`}
+              >
+                {skill.name}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -43,5 +56,5 @@ const Skills = () => {
 export default AppWrap(
   MotionWrap(Skills, "app__skills"),
   "skills",
-  "app__primarybg"
+  "app__primarybg app__skills"
 );

@@ -8,7 +8,7 @@
   transition: background-color 0.2s;
 
   &.nightmode {
-    background-color: #050816;
+    background-color: var(--primary-bg-nightmode-color);
   }
 }
 
@@ -17,7 +17,7 @@
   transition: background-color 0.2s;
 
   &.nightmode {
-    background-color: #050816;
+    background-color: var(--primary-bg-nightmode-color);
   }
 }
 
@@ -180,15 +180,14 @@
     }
 
     &.nightmode {
-      background-color: var(--black-color);
-      border: 1px solid var(--black-color);
+      background-color: #5c3ca0;
+      border: 1px solid #5c3ca0;
+      svg {
+        color: var(--white-color);
+      }
       &:hover {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
-
-        svg {
-          color: var(--white-color);
-        }
+        background-color: var(--secondary-nightmode-color);
+        border-color: var(--secondary-nightmode-color);
       }
     }
   }

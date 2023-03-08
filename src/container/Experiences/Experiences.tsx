@@ -32,9 +32,11 @@ const ExperienceCard = ({
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
+        background: theme === "light" ? "#262e86" : "#1d1836",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{
+        borderRight: `7px solid  ${theme === "light" ? "#262e86" : "#1d1836"}`,
+      }}
       date={experience.date}
       dateClassName={`timeline_date ${theme === "light" ? "lightmode" : ""}`}
       iconStyle={{
@@ -95,7 +97,7 @@ const Experiences = () => {
       <div className="app__experiences-container">
         <div className="app__experiences-exp">
           <VerticalTimeline
-            lineColor={`${theme === "light" ? "#151030" : "#fff"}`}
+            lineColor={`${theme === "light" ? "#262e86" : "#fff"}`}
           >
             {experiences.map((experience, index) => (
               <ExperienceCard

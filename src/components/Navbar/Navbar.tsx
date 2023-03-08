@@ -38,8 +38,10 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div className="app__navbar-menu">
-        <HiMenuAlt4 className="circle" onClick={() => setToggle(true)} />
+      <div
+        className={`app__navbar-menu ${theme === "dark" ? "nightmode" : ""}`}
+      >
+        <HiMenuAlt4 className="bars" onClick={() => setToggle(true)} />
         <AnimatePresence>
           {toggle && (
             <motion.div
@@ -47,9 +49,8 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: 1000 }}
               transition={{ type: "spring", damping: 15, mass: 0.5 }}
-              className={`${theme === "dark" ? "nightmode" : ""}`}
             >
-              <HiX className="bars" onClick={() => setToggle(false)} />
+              <HiX className="close" onClick={() => setToggle(false)} />
               <ul>
                 {[
                   "home",
@@ -59,10 +60,7 @@ const Navbar = () => {
                   "skills",
                   "contact",
                 ].map((item) => (
-                  <li
-                    key={item}
-                    className={`${theme === "dark" ? "nightmode" : ""}`}
-                  >
+                  <li key={item}>
                     <a href={`#${item}`} onClick={() => setToggle(false)}>
                       {item}
                     </a>

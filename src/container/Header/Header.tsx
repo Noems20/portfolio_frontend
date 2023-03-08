@@ -8,17 +8,6 @@ import { AppWrap } from "../../wrapper";
 import { images } from "../../constants";
 import "./Header.scss";
 
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-};
-
 const Header = () => {
   const { theme } = useContext(ThemeContext);
 
@@ -28,8 +17,16 @@ const Header = () => {
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          <div
+            className={`w-5 h-5 rounded-full ${
+              theme === "dark" ? "bg-[#915EFF]" : "bg-[#313bac]"
+            }`}
+          />
+          <div
+            className={`w-1 sm:h-80 h-40 ${
+              theme === "light" ? "secondary-gradient" : "violet-gradient"
+            }`}
+          />
         </div>
 
         <div>
@@ -38,11 +35,18 @@ const Header = () => {
               theme === "light" ? "text-black" : "text-white"
             }`}
           >
-            Hi, I'm <span className="text-[#915EFF]">Noé</span>
+            Hi, I'm{" "}
+            <span
+              className={`${
+                theme === "dark" ? "text-[#915EFF]" : "text-[#313bac]"
+              }`}
+            >
+              Noé
+            </span>
           </h1>
           <p
             className={`${styles.heroSubText} mt-2 ${
-              theme === "light" ? "text-[#915EFF]" : "text-[#dfd9ff] "
+              theme === "light" ? "text-[#313bac]" : "text-[#dfd9ff]"
             }`}
           >
             I develop 3D visuals, user <br className="sm:block hidden" />

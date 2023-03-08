@@ -14,9 +14,11 @@
   --white-color: #ffffff;
 
   --primary-nightmode-color: #151030;
-  --secondary-bg-nightmode-color: #18191a;
   --secondary-nightmode-color: #915eff;
+  --secondary-dark-nightmode-color: #764cd0;
   --tertiary-nightmode-color: #151030;
+  --primary-bg-nightmode-color: #050816;
+  --secondary-bg-nightmode-color: #18191a;
   --gray-nightmode-color: #b0b3b8;
 }
 
@@ -55,6 +57,20 @@
   background: -webkit-linear-gradient(
     -90deg,
     #804dee 0%,
+    rgba(60, 51, 80, 0) 100%
+  );
+}
+
+.secondary-gradient {
+  background: var(--secondary-color);
+  background: linear-gradient(
+    -90deg,
+    var(--secondary-color) 0%,
+    rgba(60, 51, 80, 0) 100%
+  );
+  background: -webkit-linear-gradient(
+    -90deg,
+    var(--secondary-color) 0%,
     rgba(60, 51, 80, 0) 100%
   );
 }
