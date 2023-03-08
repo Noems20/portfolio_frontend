@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 
-const MotionWrap = (Component: FC, classNames: string) =>
+const MotionWrap = (Component: FC, classNames?: string) =>
   function HOC() {
     return (
       <motion.div

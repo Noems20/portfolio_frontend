@@ -15,6 +15,7 @@ type Work = {
   projectLink: string;
   codeLink: string;
   description: string;
+  _id: string;
 };
 
 const Work = () => {
@@ -81,7 +82,10 @@ const Work = () => {
         className="app__work-portfolio"
       >
         {filterWork.map((work: Work, index) => (
-          <div className="background green-pink-gradient rounded-[20px] p-[1px]">
+          <div
+            className="background green-pink-gradient rounded-[20px] p-[1px]"
+            key={work._id}
+          >
             <div
               className={`app__work-item app__flex ${
                 theme === "dark" ? "nightmode" : ""

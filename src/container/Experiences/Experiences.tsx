@@ -74,16 +74,14 @@ const ExperienceCard = ({
   );
 };
 
-const Skills = () => {
+const Experiences = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const query = '*[_type == "experiences"]';
-    const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
-      console.log(data);
       setExperiences(data);
     });
   }, []);
@@ -91,11 +89,11 @@ const Skills = () => {
   return (
     <>
       <h2 className={`head-text ${theme === "dark" ? "nightmode" : ""}`}>
-        Work Experiences
+        Work <span>Experiences</span>
       </h2>
 
-      <div className="app__skills-container">
-        <div className="app__skills-exp">
+      <div className="app__experiences-container">
+        <div className="app__experiences-exp">
           <VerticalTimeline
             lineColor={`${theme === "light" ? "#151030" : "#fff"}`}
           >
@@ -114,7 +112,7 @@ const Skills = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Skills, "app__skills"),
-  "skills",
+  MotionWrap(Experiences, "app__experiences"),
+  "experiences",
   "app__whitebg"
 );

@@ -18,16 +18,18 @@ const Navbar = () => {
         <img src={images.logo} alt="logo" />
       </div>
       <ul className="app__navbar-links">
-        {["home", "about", "work", "skills", "contact"].map((item) => (
-          <li
-            key={`link-${item}`}
-            className={`app__flex p-text ${
-              theme === "dark" ? "nightmode" : ""
-            }`}
-          >
-            <a href={`#${item}`}>{item}</a>
-          </li>
-        ))}
+        {["home", "about", "work", "experiences", "skills", "contact"].map(
+          (item) => (
+            <li
+              key={`link-${item}`}
+              className={`app__flex p-text ${
+                theme === "dark" ? "nightmode" : ""
+              }`}
+            >
+              <a href={`#${item}`}>{item}</a>
+            </li>
+          )
+        )}
         <li
           onClick={() => toggleTheme()}
           className={`${theme === "dark" ? "nightmode" : ""}`}
@@ -49,7 +51,14 @@ const Navbar = () => {
             >
               <HiX className="bars" onClick={() => setToggle(false)} />
               <ul>
-                {["home", "about", "work", "skills", "contact"].map((item) => (
+                {[
+                  "home",
+                  "about",
+                  "work",
+                  "experiences",
+                  "skills",
+                  "contact",
+                ].map((item) => (
                   <li
                     key={item}
                     className={`${theme === "dark" ? "nightmode" : ""}`}
