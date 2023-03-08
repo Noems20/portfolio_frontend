@@ -1,4 +1,11 @@
-import { About, Footer, Header, Skills, Testimonial, Work } from "./container";
+import {
+  About,
+  Footer,
+  Header,
+  Experiences,
+  Testimonial,
+  Work,
+} from "./container";
 import { Navbar } from "./components";
 import { ThemeContextProvider } from "./ThemeContext";
 
@@ -12,7 +19,7 @@ function App() {
         <Header />
         <About />
         <Work />
-        <Skills />
+        <Experiences />
         <Testimonial />
         <Footer />
       </div>

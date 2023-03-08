@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
+import ComputersCanvas from "../../components/canvas/computers";
+import { styles } from "../../styles";
 
 import { AppWrap } from "../../wrapper";
 import { images } from "../../constants";
@@ -21,80 +23,45 @@ const Header = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="app__header app__flex">
-      <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.5 }}
-        className="app__header-info"
+    <section className={`relative w-full h-screen mx-auto`}>
+      <div
+        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
-        <div className="app__header-badge">
-          <div
-            className={`badge-cmp app__flex ${
-              theme === "dark" ? "nightmode" : ""
-            }`}
-          >
-            <span>👋</span>
-            <div style={{ marginLeft: 20 }}>
-              <p className={`p-text ${theme === "dark" ? "nightmode" : ""}`}>
-                Hello, I am
-              </p>
-              <h1
-                className={`head-text ${theme === "dark" ? "nightmode" : ""}`}
-              >
-                Noé
-              </h1>
-            </div>
-          </div>
-
-          <div
-            className={`tag-cmp app__flex ${
-              theme === "dark" ? "nightmode" : ""
-            }`}
-          >
-            <p className={`p-text ${theme === "dark" ? "nightmode" : ""}`}>
-              Web Developer
-            </p>
-            <p className={`p-text ${theme === "dark" ? "nightmode" : ""}`}>
-              Freelancer
-            </p>
-          </div>
+        <div className="flex flex-col justify-center items-center mt-5">
+          <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
+          <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
-      </motion.div>
 
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__header-img"
-      >
-        <img src={images.profile} alt="profile_bg" />
-        {/* <motion.img
-        whileInView={{ scale: [0, 1] }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        src={images.circle}
-        alt="profile_circle"
-        className="overlay_circle"
-      /> */}
-      </motion.div>
+        <div>
+          <h1
+            className={`${styles.heroHeadText} ${
+              theme === "light" ? "text-black" : "text-white"
+            }`}
+          >
+            Hi, I'm <span className="text-[#915EFF]">Noé</span>
+          </h1>
+          <p
+            className={`${styles.heroSubText} mt-2 ${
+              theme === "light" ? "text-[#915EFF]" : "text-[#dfd9ff] "
+            }`}
+          >
+            I develop 3D visuals, user <br className="sm:block hidden" />
+            interfaces and web applications
+          </p>
+        </div>
+      </div>
+      {theme === "light" && (
+        <motion.img
+          whileInView={{ scale: [0, 1] }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          src={images.circle}
+          alt="profile_circle"
+          className="overlay_circle"
+        />
+      )}
 
-      <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
-        className={`app__header-circles`}
-      >
-        {[images.react, images.redux, images.typescript2].map(
-          (circle, index) => (
-            <div
-              className={`circle-cmp app__flex ${
-                theme === "dark" ? "nightmode" : ""
-              }`}
-              key={`circle-${index}`}
-            >
-              <img src={circle} alt="profile_bg" />
-            </div>
-          )
-        )}
-      </motion.div>
-    </div>
+      <ComputersCanvas />
+    </section>
   );
 };
 

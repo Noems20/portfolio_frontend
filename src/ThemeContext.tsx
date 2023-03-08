@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 const ThemeContext = React.createContext({
-  theme: "light",
+  theme: "dark",
   toggleTheme: () => {},
 });
 
 function ThemeContextProvider(props: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   function toggleTheme() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));

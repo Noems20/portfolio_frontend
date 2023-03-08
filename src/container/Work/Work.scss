@@ -61,13 +61,17 @@
   justify-content: center;
   align-items: center;
 
-  .app__work-item {
+  .background {
     width: 270px;
+    margin: 2rem;
+  }
+
+  .app__work-item {
+    // width: 270px;
     flex-direction: column;
 
-    margin: 2rem;
     padding: 1rem;
-    border-radius: 0.5rem;
+    // border-radius: 0.5rem;
     background-color: #fff;
     color: #000;
 
@@ -90,7 +94,7 @@
     }
 
     &.nightmode {
-      background-color: var(--primary-nightmode-color);
+      background-color: var(--tertiary-nightmode-color);
     }
   }
 }
