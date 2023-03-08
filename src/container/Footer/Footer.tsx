@@ -2,7 +2,6 @@ import React, { useState, useContext, useRef } from "react";
 import { ThemeContext } from "../../ThemeContext";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { client } from "../../client";
 import "./Footer.scss";
 
 import { motion } from "framer-motion";
