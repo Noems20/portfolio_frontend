@@ -212,3 +212,15 @@
   width: 100%;
   height: 70%;
 }
+
+.typewritter-text {
+  span {
+    color: var(--secondary-color);
+  }
+
+  &.nightmode {
+    span {
+      color: var(--secondary-nightmode-color);
+    }
+  }
+}

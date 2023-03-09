@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import ComputersCanvas from "../../components/canvas/computers";
+import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 import { styles } from "../../styles";
 
 import { AppWrap } from "../../wrapper";
@@ -30,20 +31,19 @@ const Header = () => {
         </div>
 
         <div>
-          <h1
-            className={`${styles.heroHeadText} ${
-              theme === "light" ? "text-black" : "text-white"
-            }`}
-          >
-            Hi, I'm{" "}
-            <span
-              className={`${
-                theme === "dark" ? "text-[#915EFF]" : "text-[#313bac]"
-              }`}
-            >
-              Noé
-            </span>
-          </h1>
+          <Typewriter
+            options={{
+              strings: [`Hi, I'm <span >Noé!</span>`, "Welcome!"],
+              autoStart: true,
+              loop: true,
+              wrapperClassName: `${styles.heroHeadText} ${
+                theme === "light" ? "text-black" : "text-white"
+              } typewritter-text ${theme === "dark" ? "nightmode" : ""}`,
+              cursorClassName: `${styles.heroHeadText} ${
+                theme === "light" ? "text-black" : "text-white"
+              } font-extralight`,
+            }}
+          />
           <p
             className={`${styles.heroSubText} mt-2 ${
               theme === "light" ? "text-[#313bac]" : "text-[#dfd9ff]"
