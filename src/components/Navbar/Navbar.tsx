@@ -15,7 +15,10 @@ const Navbar = () => {
   return (
     <nav className={`app__navbar ${theme === "dark" ? "nightmode" : ""}`}>
       <div className="app__navbar-logo">
-        <img src={images.logo} alt="logo" />
+        <img
+          src={theme === "dark" ? images.logo : images.logoLight}
+          alt="logo"
+        />
       </div>
       <ul className="app__navbar-links">
         {["home", "about", "work", "experiences", "skills", "contact"].map(
