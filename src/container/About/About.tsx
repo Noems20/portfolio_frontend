@@ -18,7 +18,7 @@ const About = () => {
   const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
-    const query = '*[_type == "abouts"]';
+    const query = '*[_type == "abouts"] | order(order desc)';
 
     client.fetch(query).then((data) => {
       setAbouts(data);
