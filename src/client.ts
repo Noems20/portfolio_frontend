@@ -5,9 +5,8 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 export const client = createClient({
   projectId: import.meta.env.VITE_REACT_APP_SANITY_PROJECT_ID,
   dataset: "production",
-  apiVersion: "2022-02-01",
+  apiVersion: "2023-03-10",
   useCdn: true,
-  token: import.meta.env.VITE_REACT_APP_SANITY_TOKEN,
 });
 
 const builder = imageUrlBuilder(client);
