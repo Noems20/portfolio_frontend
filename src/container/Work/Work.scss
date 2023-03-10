@@ -80,6 +80,10 @@
 
     &:hover {
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
+      .app__work-img .app__work-hover {
+        opacity: 1;
+      }
     }
 
     @media screen and (min-width: 2000px) {
