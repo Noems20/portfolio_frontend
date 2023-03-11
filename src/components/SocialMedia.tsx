@@ -1,18 +1,32 @@
-import { BsTwitter, BsInstagram } from "react-icons/bs";
-import { FaFacebookF } from "react-icons/fa";
+import { BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const SocialMedia = ({ theme }: { theme: string }) => {
   return (
     <div className={`app__social`}>
-      <div className={`${theme === "dark" ? "nightmode" : ""}`}>
-        <BsTwitter />
-      </div>
-      <div className={`${theme === "dark" ? "nightmode" : ""}`}>
-        <FaFacebookF />
-      </div>
-      <div className={`${theme === "dark" ? "nightmode" : ""}`}>
+      <a
+        href="https://www.linkedin.com/in/noems20/"
+        target="_blank"
+        rel="noreferrer"
+        className={`${theme === "dark" ? "nightmode" : ""}`}
+      >
+        <BsLinkedin />
+      </a>
+      <a
+        href="https://www.instagram.com/noemunozsanchezz/"
+        target="_blank"
+        rel="noreferrer"
+        className={`${theme === "dark" ? "nightmode" : ""}`}
+      >
         <BsInstagram />
-      </div>
+      </a>
+      <a
+        href="https://twitter.com/noemunozsanchez"
+        target="_blank"
+        rel="noreferrer"
+        className={`${theme === "dark" ? "nightmode" : ""}`}
+      >
+        <BsTwitter />
+      </a>
     </div>
   );
 };
