@@ -70,9 +70,11 @@ const Skills = () => {
           (skill, index) =>
             isMobile &&
             index >= 5 && (
-              <div className="flex flex-col justify-center justify-items-center">
+              <div
+                className="flex flex-col justify-center justify-items-center"
+                key={skill._id}
+              >
                 <div
-                  key={skill._id}
                   className={`skill-circle ${
                     theme === "dark" ? "nightmode" : ""
                   }`}
