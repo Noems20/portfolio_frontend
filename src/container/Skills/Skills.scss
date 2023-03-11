@@ -11,4 +11,34 @@
     width: 140px;
     height: 140px;
   }
+
+  .skill-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: box-shadow 0.4s;
+
+    img {
+      width: 60%;
+      height: 60%;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px var(--gray-color);
+    }
+
+    &.nightmode {
+      background-color: #fef4f5;
+
+      &:hover {
+        box-shadow: 0 0 10px #fef4f5;
+      }
+    }
+  }
 }
