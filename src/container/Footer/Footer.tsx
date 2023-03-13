@@ -56,7 +56,7 @@ const Footer = () => {
           to_name: "Noé Muñoz Sánchez",
           from_email: form.email,
           to_email: "noesm.16@gmail.com",
-          message: `${form.message}\nEmail: ${form.email} `,
+          message: `${form.message}`,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
