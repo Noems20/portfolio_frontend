@@ -1,4 +1,4 @@
-import { BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsLinkedin, BsTwitter, BsGithub } from "react-icons/bs";
 
 const SocialMedia = ({ theme }: { theme: string }) => {
   return (
@@ -12,12 +12,12 @@ const SocialMedia = ({ theme }: { theme: string }) => {
         <BsLinkedin />
       </a>
       <a
-        href="https://www.instagram.com/noemunozsanchezz/"
+        href="https://github.com/Noems20"
         target="_blank"
         rel="noreferrer"
         className={`${theme === "dark" ? "nightmode" : ""}`}
       >
-        <BsInstagram />
+        <BsGithub />
       </a>
       <a
         href="https://twitter.com/noemunozsanchez"
