@@ -49,8 +49,8 @@ const Header = () => {
               theme === "light" ? "text-[#313bac]" : "text-[#dfd9ff]"
             }`}
           >
-            I develop 3D visuals, user <br className="sm:block hidden" />
-            interfaces and web applications
+            I develop Full-Stack web <br className="sm:block hidden" />
+            applications and user interfaces
           </p>
         </div>
       </div>
