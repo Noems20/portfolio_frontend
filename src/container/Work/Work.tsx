@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useMemo } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
@@ -49,6 +49,17 @@ const Work = () => {
     }, 500);
   };
 
+  const tags = useMemo(() => {
+    const workTags = Array.from(
+      works.reduce((acc, work) => {
+        work.tags.forEach((tag) => acc.add(tag));
+        return acc;
+      }, new Set<string>())
+    );
+    workTags.push("All");
+    return workTags;
+  }, [works]);
+
   return (
     <>
       <h2 className={`head-text ${theme === "dark" ? "nightmode" : ""}`}>
@@ -56,14 +67,7 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {[
-          "Javascript",
-          "Typescript",
-          "React",
-          "Express.js",
-          "Fullstack (MERN)",
-          "All",
-        ].map((item, index) => (
+        {tags.map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
